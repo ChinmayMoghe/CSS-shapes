@@ -1,0 +1,96 @@
+:root {
+    --paper-bg:#ffffdc;
+}
+
+/* lobotomized owl - a better version of CSS reset*/
+* + * {
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+body {
+    background-color: #333;
+}
+
+
+.container {
+    width: 80vw;
+    height: 100%;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.paper {
+    background-color:var(--paper-bg);
+    box-shadow:0px 0px 10px 2px rgba(0, 0, 0, 0.55);
+}
+
+.content-holder {
+    width: 90%;
+    overflow: hidden;
+    margin: 20px auto;
+    background-color:rgb(235, 213, 213);
+    padding:20px;
+    text-align: justify;
+}
+
+.avatar-image {
+    float:left;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    margin: 20px;
+    shape-outside: circle();
+}
+
+.ninja-image {
+    float:left;
+    border-radius: 50%;
+    margin: 20px;
+    shape-outside: ellipse();
+    width: 20%;
+}
+
+.kali-image {
+    float:left;
+    width: 50%;
+    margin: 20px;
+    shape-outside: polygon(0.8% 0.68%, 66.61% 5.25%, 90% 39%, 95.93% 46.04%, 90% 52%, 100.14% 78.67%, 92.39% 100.84%, 72.86% 71.62%, 21.9% 52.71%, 1% 19%);
+}
+
+/*Fluid typography*/
+@media screen and (min-width: 320px) {
+    html{
+    font-size: calc(16px + 6*((100vw - 320px) / 680));
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+/*Media queries for potrait mode for mobile devices*/
+@media only screen and (max-width:680px) {
+    .avatar-image {
+        width: 50%;
+        margin: 5%;
+    }
+
+    .ninja-image {
+        margin: 5%;
+        width: 45%;
+    }
+
+    .kali-image {
+        width: 60%;
+        margin: 5%;
+    }
+}
