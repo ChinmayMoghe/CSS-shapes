@@ -10,7 +10,17 @@
 </head>
 
 <body>
-    <div class="paper container">
+    <div class="loader">
+        <div class="loader-cube">
+            <div class="face-1"></div>
+            <div class="face-2"></div>
+            <div class="face-3"></div>
+            <div class="face-4"></div>
+            <div class="face-5"></div>
+            <div class="face-6"></div>
+        </div>
+    </div>
+    <div class="hide paper container">
         <h2 class="content-holder">CSS Shapes</h2>
         <div class="content-holder">
             <h3>shape-outside: circle()</h3>
@@ -89,6 +99,31 @@
 </body>
 <script>
     /*Script for showing loader while loading images*/
-    
+    const images = [{ "imgPath": '/images/avatar.png', "isLoaded": false }, { "imgPath": '/images/hatake.jpg', "isLoaded": false }, { "imgPath": '/images/kali-linux.png', "isLoaded": false }];
+    async function* loadImages(images) {
+        for (let image of images) {
+            const imageLoaded = await new Promise(resolve => {
+                const img = new Image();
+                img.onload = () => resolve(image.isLoaded = true)
+                img.src = image.imgPath;
+            });
+            yield imageLoaded;
+        }
+    }
+
+    const hideLoader = () => {
+        document.querySelector('.loader').classList.toggle('hide');
+        document.querySelector('.container').classList.toggle('hide')
+    };
+
+    (async () => {
+        for await (let status of loadImages(images)) {
+            const imageLoaded = images.reduce((allImagesLoaded, currentImageLoaded) => allImagesLoaded && currentImageLoaded);
+            if (imageLoaded) {
+                hideLoader();
+            }
+        }
+    })();
 </script>
+
 </html>

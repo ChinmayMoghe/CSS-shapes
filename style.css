@@ -64,6 +64,65 @@ body {
     shape-outside: polygon(0.8% 0.68%, 66.61% 5.25%, 90% 39%, 95.93% 46.04%, 90% 52%, 100.14% 78.67%, 92.39% 100.84%, 72.86% 71.62%, 21.9% 52.71%, 1% 19%);
 }
 
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .loader-cube {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    perspective: 450em;
+    transform-origin: center center 0;
+    animation: rotate 10s ease-out forwards infinite;
+  }
+  
+  @keyframes rotate {
+    0% {transform: rotate3d(0,0,0,120deg);}
+    100% {transform: rotate3d(1,1,1,330deg);}
+  }
+  
+  [class^="face"] {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(transparent,rgba(57, 216, 57, 0.3));
+    background-size: 100% 3px;
+  }
+  
+  .face-1 {
+    transform: translateZ(50px);
+  }
+  
+  .face-2 {
+    transform: translateZ(-50px);
+  }
+  
+  .face-3 {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+  
+  .face-4 {
+    transform:rotateX(90deg) translateZ(-50px);
+  }
+  
+  .face-5 {
+    transform:rotateY(90deg) translateZ(50px);
+  }
+
+  .face-6 {
+    transform:rotateY(90deg) translateZ(-50px);
+  }
+
+div.hide {
+    display: none;
+}
+
 /*Fluid typography*/
 @media screen and (min-width: 320px) {
     html{
