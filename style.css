@@ -2,11 +2,14 @@
     --paper-bg:#ffffdc;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* lobotomized owl - a better version of CSS reset*/
 * + * {
     margin: 0;
     padding : 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -32,11 +35,11 @@ body {
 }
 
 .content-holder {
-    width: 90%;
+    width: 95%;
     overflow: hidden;
     margin: 20px auto;
+    padding:15px;
     background-color:rgb(235, 213, 213);
-    padding:20px;
     text-align: justify;
 }
 
