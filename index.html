@@ -117,10 +117,10 @@
     };
 
     (async () => {
-        let status = [];
+        let statusArr = [];
         for await (let status of loadImages(images)) {
-            console.log(imageLoaded);
-            if (status.length == 3 && status.reduce((all, current) => all && current)) {
+            statusArr.push(statusArr);
+            if (statusArr.length == 3 && statusArr.reduce((all, current) => all && current)) {
                 hideLoader();
             }
         }
